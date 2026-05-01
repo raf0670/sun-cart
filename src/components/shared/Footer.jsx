@@ -4,7 +4,7 @@ import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className="bg-[#0a0a0b] text-gray-300 border-t border-gray-100">
+        <footer className="bg-[#0a0a0b] text-gray-300">
             <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
 
@@ -15,7 +15,7 @@ const Footer = () => {
                         <ul className="mt-4 space-y-3">
                             <li className="flex items-center gap-3 text-gray-300">
                                 <MapPin className="size-5 text-purple-500" />
-                                <span className="text-sm">Dhaka, Bangladesh</span>
+                                <span className="text-sm">Bangladesh</span>
                             </li>
                             <li className="flex items-center gap-3 text-gray-300">
                                 <Phone className="size-5 text-pink-500" />
@@ -23,7 +23,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center gap-3 text-gray-300">
                                 <Mail className="size-5 text-orange-500" />
-                                <span className="text-sm">support@yourstore.com</span>
+                                <span className="text-sm">suncart@gmail.com</span>
                             </li>
                         </ul>
                     </div>
