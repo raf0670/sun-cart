@@ -4,7 +4,7 @@ import { ArrowLeft, Home, ShoppingBag, Search } from 'lucide-react';
 export default function NotFound() {
     return (
         <main className="grid min-h-screen place-items-center bg-[#0a0a0b] px-6 py-24 sm:py-32 lg:px-8">
-            <div className="text-center">
+            <div className="text-center animate__animated animate__tada">
                 <p className="text-9xl font-black text-white/5 select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 tracking-tighter">
                     404
                 </p>

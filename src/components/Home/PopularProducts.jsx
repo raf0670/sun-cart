@@ -2,6 +2,7 @@ import React from 'react';
 import { Star, Eye } from 'lucide-react';
 import Image from 'next/image';
 import ProductIntroCard from '../shared/ProductIntroCard';
+import Link from 'next/link';
 
 const products = [
     {
@@ -39,9 +40,9 @@ const PopularProducts = () => {
                     <h2 className="text-3xl font-black tracking-tight text-gray-900 sm:text-4xl">
                         🔥 <span className="bg-linear-to-r from-indigo-600 via-purple-600 to-orange-500 bg-clip-text text-transparent">Popular Products</span>
                     </h2>
-                    <a href="/products" className="text-sm font-bold text-indigo-600 hover:text-orange-500 transition">
+                    <Link href="/products" className="text-sm font-bold text-indigo-600 hover:text-orange-500 transition">
                         View All Products &rarr;
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">

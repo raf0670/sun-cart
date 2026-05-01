@@ -4,7 +4,7 @@ import React from 'react';
 
 const ProductIntroCard = ({ product }) => {
     return (
-        <div key={product.id} className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition hover:shadow-xl">
+        <div key={product.id} className="group animate__animated animate__backInLeft relative flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition hover:shadow-xl">
 
             <div className="relative aspect-square overflow-hidden bg-gray-100">
                 <Image

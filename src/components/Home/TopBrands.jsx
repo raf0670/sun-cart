@@ -43,7 +43,7 @@ const TopBrands = () => {
                     {brands.map((brand, index) => (
                         <div
                             key={index}
-                            className="group relative flex flex-col items-center text-center p-10 rounded-2xl border border-gray-100 transition-all duration-500 hover:border-purple-200 hover:shadow-2xl hover:shadow-purple-500/5"
+                            className="group relative flex animate__animated animate__backInDown flex-col items-center text-center p-10 rounded-2xl border border-gray-100 transition-all duration-500 hover:border-purple-200 hover:shadow-2xl hover:shadow-purple-500/5"
                         >
                             <div className="absolute inset-0 bg-linear-to-br from-indigo-50/50 to-orange-50/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
 

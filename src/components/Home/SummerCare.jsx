@@ -42,7 +42,7 @@ const SummerCare = () => {
                     {tips.map((tip, index) => (
                         <div
                             key={index}
-                            className={`relative overflow-hidden rounded-3xl p-8 bg-linear-to-br ${tip.gradient} border border-white shadow-sm transition hover:shadow-md hover:-translate-y-1 duration-300`}
+                            className={`relative animate__animated animate__backInRight overflow-hidden rounded-3xl p-8 bg-linear-to-br ${tip.gradient} border border-white shadow-sm transition hover:shadow-md hover:-translate-y-1 duration-300`}
                         >
                             {/* Icon & Tag */}
                             <div className="flex items-center justify-between mb-6">
