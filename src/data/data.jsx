@@ -3,6 +3,8 @@ export const getPosts = async () => {
     return res.json();
 };
 
-export const getProduct = async () => {
-    
+export const getProduct = async (id) => {
+    const res = await fetch(`http://localhost:5000/products/${id}`);
+    console.log(id);
+    return res.json();
 };

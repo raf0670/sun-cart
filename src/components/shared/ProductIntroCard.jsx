@@ -1,5 +1,6 @@
 import { Eye, Star } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const ProductIntroCard = ({ product }) => {
@@ -37,10 +38,10 @@ const ProductIntroCard = ({ product }) => {
                         ${product.price}
                     </p>
 
-                    <button className="flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-linear-to-r hover:from-indigo-500 hover:to-orange-400 active:scale-95 shadow-md">
+                    <Link href={`http://localhost:3000/products/${product.id}`} className="flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-linear-to-r hover:from-indigo-500 hover:to-orange-400 active:scale-95 shadow-md">
                         <Eye className="size-4" />
                         View Details
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

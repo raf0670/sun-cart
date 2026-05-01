@@ -1,24 +1,18 @@
-"use client";
-
-import React, { useState } from 'react';
+import React from 'react';
 import { Star, ShoppingCart, ArrowLeft, ShieldCheck, Truck, RefreshCcw } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getProduct } from '@/data/data';
 
-// Mock data fetch - in a real app, you'd fetch this from your JSON or API based on the ID
-const getProduct = (id) => {
-    const products = [ /* Your JSON data here */];
-    return products.find(p => p.id === parseInt(id)) || products[0];
-};
-
-export default function ProductDetails({ params }) {
-    const product = getProduct(params.id);
-    const [quantity, setQuantity] = useState(1);
+const ProductDetails = async ({ params }) => {
+    const { id } = await params;
+    const product = await getProduct(id);
+    // console.log(product);
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen">
             <nav className="p-6">
-                <Link href="/" className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-indigo-600 transition-colors">
+                <Link href={"/products"} className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-indigo-600 transition-colors">
                     <ArrowLeft className="size-4" /> Back to Collection
                 </Link>
             </nav>
@@ -31,8 +25,8 @@ export default function ProductDetails({ params }) {
                             <Image
                                 src={product.image}
                                 alt={product.name}
-                                width={100}
-                                height={100}
+                                width={10000}
+                                height={10000}
                                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute top-6 right-6 rounded-2xl bg-white/90 backdrop-blur-md px-4 py-2 text-xs font-black uppercase tracking-widest text-gray-900 shadow-xl">
@@ -74,15 +68,15 @@ export default function ProductDetails({ params }) {
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                            <div className="flex items-center justify-between border-2 border-gray-100 rounded-2xl p-2 min-w-[140px]">
-                                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="size-10 rounded-xl hover:bg-gray-50 flex items-center justify-center font-bold text-xl">-</button>
-                                <span className="font-black text-lg">{quantity}</span>
-                                <button onClick={() => setQuantity(quantity + 1)} className="size-10 rounded-xl hover:bg-gray-50 flex items-center justify-center font-bold text-xl">+</button>
-                            </div>
+                            {/* <div className="flex items-center justify-between border-2 border-gray-100 rounded-2xl p-2 min-w-35">
+                                <button className="size-10 rounded-xl hover:bg-gray-50 flex items-center justify-center font-bold text-xl">-</button>
+                                <span className="font-black text-lg">0</span>
+                                <button className="size-10 rounded-xl hover:bg-gray-50 flex items-center justify-center font-bold text-xl">+</button>
+                            </div> */}
 
-                            <button className="flex-1 flex items-center justify-center gap-3 rounded-2xl bg-[#0a0a0b] text-white px-8 py-4 font-black transition-all hover:bg-gradient-to-r hover:from-indigo-600 hover:to-orange-500 hover:shadow-2xl hover:shadow-indigo-500/20 active:scale-95">
+                            <button className="flex-1 flex items-center justify-center gap-3 rounded-2xl bg-[#0a0a0b] text-white px-8 py-4 font-black transition-all hover:bg-linear-to-r hover:from-indigo-600 hover:to-orange-500 hover:shadow-2xl hover:shadow-indigo-500/20 active:scale-95">
                                 <ShoppingCart className="size-5" />
-                                Add to Cart — ${(product.price * quantity).toFixed(2)}
+                                Add to Cart
                             </button>
                         </div>
 
@@ -106,3 +100,5 @@ export default function ProductDetails({ params }) {
         </div>
     );
 }
+
+export default ProductDetails;
