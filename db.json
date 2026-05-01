@@ -1,0 +1,136 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Polarized Aviator Sunglasses",
+            "brand": "SunShade",
+            "price": 25,
+            "rating": 4.8,
+            "stock": 15,
+            "description": "Classic aviator style with full UV400 protection and glare reduction.",
+            "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&q=80&w=800",
+            "category": "Accessories"
+        },
+        {
+            "id": 2,
+            "name": "Breathable Linen Shirt",
+            "brand": "BreezeWear",
+            "price": 45,
+            "rating": 4.5,
+            "stock": 20,
+            "description": "100% organic linen shirt designed to keep you cool in the tropical heat.",
+            "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=800",
+            "category": "Apparel"
+        },
+        {
+            "id": 3,
+            "name": "Water-Resistant Beach Bag",
+            "brand": "Shoreline",
+            "price": 30,
+            "rating": 4.6,
+            "stock": 12,
+            "description": "Extra-large tote bag with sand-proof lining and waterproof compartments.",
+            "image": "https://images.unsplash.com/photo-1726435255364-c2d6be77fd9c",
+            "category": "Accessories"
+        },
+        {
+            "id": 4,
+            "name": "Mineral SPF 50 Sunscreen",
+            "brand": "GlowGuard",
+            "price": 18,
+            "rating": 4.9,
+            "stock": 50,
+            "description": "Non-greasy, reef-safe mineral sunscreen with vitamin E and aloe.",
+            "image": "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&q=80&w=800",
+            "category": "Skincare"
+        },
+        {
+            "id": 5,
+            "name": "Woven Straw Fedora",
+            "brand": "IslandVibe",
+            "price": 22,
+            "rating": 4.4,
+            "stock": 8,
+            "description": "Handcrafted straw hat with an adjustable inner band for the perfect fit.",
+            "image": "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?auto=format&fit=crop&q=80&w=800",
+            "category": "Accessories"
+        },
+        {
+            "id": 6,
+            "name": "Portable Handheld Fan",
+            "brand": "CoolTech",
+            "price": 12,
+            "rating": 4.3,
+            "stock": 25,
+            "description": "Rechargeable USB fan with three speeds and 10-hour battery life.",
+            "image": "https://images.unsplash.com/photo-1619441207978-3d326c46e2c9?auto=format&fit=crop&q=80&w=800",
+            "category": "Gadgets"
+        },
+        {
+            "id": 7,
+            "name": "Quick-Dry Swim Trunks",
+            "brand": "AquaFlow",
+            "price": 35,
+            "rating": 4.7,
+            "stock": 18,
+            "description": "Stylish floral print trunks with a comfortable mesh lining and 4-way stretch.",
+            "image": "https://images.unsplash.com/photo-1599739291060-4578e77dac5d?auto=format&fit=crop&q=80&w=800",
+            "category": "Apparel"
+        },
+        {
+            "id": 8,
+            "name": "Insulated Water Bottle",
+            "brand": "HydroPeak",
+            "price": 28,
+            "rating": 4.9,
+            "stock": 30,
+            "description": "Stainless steel bottle that keeps drinks ice-cold for up to 24 hours.",
+            "image": "https://images.unsplash.com/photo-1625708458528-802ec79b1ed8?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "category": "Gadgets"
+        },
+        {
+            "id": 9,
+            "name": "Lightweight Beach Sandals",
+            "brand": "Soleil",
+            "price": 20,
+            "rating": 4.2,
+            "stock": 22,
+            "description": "Ergonomic flip-flops with arch support and a non-slip rubber sole.",
+            "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800",
+            "category": "Footwear"
+        },
+        {
+            "id": 10,
+            "name": "Floral Summer Dress",
+            "brand": "Bloom",
+            "price": 55,
+            "rating": 4.8,
+            "stock": 10,
+            "description": "Flowy midi dress with a cinched waist and vibrant botanical pattern.",
+            "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=800",
+            "category": "Apparel"
+        },
+        {
+            "id": 11,
+            "name": "Waterproof Bluetooth Speaker",
+            "brand": "WaveBeat",
+            "price": 40,
+            "rating": 4.6,
+            "stock": 14,
+            "description": "Floating speaker with 360-degree sound, perfect for pool parties.",
+            "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&q=80&w=800",
+            "category": "Gadgets"
+        },
+        {
+            "id": 12,
+            "name": "Large Microfiber Towel",
+            "brand": "DrySwift",
+            "price": 19,
+            "rating": 4.5,
+            "stock": 40,
+            "description": "Sand-free microfiber towel that dries 3x faster than standard cotton.",
+            "image": "https://plus.unsplash.com/premium_photo-1675799686591-fca6e06bc835?auto=format&fit=crop&q=80&w=800",
+            "category": "Accessories"
+        }
+    ]
+}
