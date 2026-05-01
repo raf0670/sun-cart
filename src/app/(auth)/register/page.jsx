@@ -2,11 +2,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Lock, Mail, ShieldCheck, User, UserPlus } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { FaUser } from 'react-icons/fa';
 
 const RegisterPage = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Loggedin");
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const handleRegisterSubmit = (data) => {
+        console.log(data);
     };
 
     return (
@@ -40,16 +43,32 @@ const RegisterPage = () => {
                         <h2 className="text-3xl font-black text-gray-900 mb-2">Create Account</h2>
                         <p className="text-gray-500 text-sm mb-8">Start your journey with us today.</p>
 
-                        <form className="space-y-4" onSubmit={handleSubmit}>
+                        <form className="space-y-4" onSubmit={handleSubmit(handleRegisterSubmit)}>
                             <div className="space-y-1.5">
                                 <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Full Name</label>
                                 <div className="relative group">
                                     <User className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-gray-400 group-focus-within:text-indigo-500 transition-colors" />
                                     <input
+                                        {...register("name", { required: "Name is Required!" })}
                                         type="text"
                                         placeholder="Your Full Name"
                                         className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/5 transition-all"
                                     />
+                                    {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
+                                </div>
+                            </div>
+
+                            <div className="space-y-1.5">
+                                <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Photo URL</label>
+                                <div className="relative group">
+                                    <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-gray-400 group-focus-within:text-indigo-500 transition-colors" />
+                                    <input
+                                        {...register("photo", { required: "Photo URL is Required!" })}
+                                        type="text"
+                                        placeholder="Photo URL"
+                                        className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/5 transition-all"
+                                    />
+                                    {errors.photo && <p className='text-red-500'>{errors.photo.message}</p>}
                                 </div>
                             </div>
 
@@ -58,10 +77,12 @@ const RegisterPage = () => {
                                 <div className="relative group">
                                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-gray-400 group-focus-within:text-indigo-500 transition-colors" />
                                     <input
+                                        {...register("email", { required: "Email is Required!" })}
                                         type="email"
                                         placeholder="user@domain.com"
                                         className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/5 transition-all"
                                     />
+                                    {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                                 </div>
                             </div>
 
@@ -70,10 +91,12 @@ const RegisterPage = () => {
                                 <div className="relative group">
                                     <Lock className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-gray-400 group-focus-within:text-indigo-500 transition-colors" />
                                     <input
+                                        {...register("password", { required: "Password is Required!" })}
                                         type="password"
                                         placeholder="Create a strong password"
                                         className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/5 transition-all"
                                     />
+                                    {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                                 </div>
                             </div>
 

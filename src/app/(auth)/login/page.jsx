@@ -3,11 +3,13 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Lock, Mail } from 'lucide-react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { useForm } from 'react-hook-form';
 
 const LoginPage = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Loggedin");
+    const {register, handleSubmit, formState: {errors}} = useForm();
+
+    const handleLoginSubmit = (data) => {
+        console.log(data);
     };
 
     return (
@@ -45,31 +47,34 @@ const LoginPage = () => {
                         <h2 className="text-2xl font-black text-gray-900 mb-2">Login</h2>
                         <p className="text-gray-500 text-sm mb-8">Enter your credentials to access your account.</p>
 
-                        <form className="space-y-5" onSubmit={handleSubmit}>
+                        <form className="space-y-5" onSubmit={handleSubmit(handleLoginSubmit)}>
                             <div className="space-y-2">
                                 <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Email Address</label>
                                 <div className="relative group">
                                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-gray-400 group-focus-within:text-indigo-500 transition-colors" />
                                     <input
+                                        {...register("email", {required: "Please input your email to log in!"})}
                                         type="email"
-                                        placeholder="name@example.com"
+                                        placeholder="user@domain.com"
                                         className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/5 transition-all"
                                     />
+                                    {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                                 </div>
                             </div>
 
                             <div className="space-y-2">
                                 <div className="flex justify-between items-center px-1">
                                     <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Password</label>
-                                    <Link href="#" className="text-xs font-bold text-orange-500 hover:underline">Forgot?</Link>
                                 </div>
                                 <div className="relative group">
                                     <Lock className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-gray-400 group-focus-within:text-indigo-500 transition-colors" />
                                     <input
+                                        {...register("password", {required: "Password is Required!"})}
                                         type="password"
                                         placeholder="••••••••"
                                         className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/5 transition-all"
                                     />
+                                    {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                                 </div>
                             </div>
 

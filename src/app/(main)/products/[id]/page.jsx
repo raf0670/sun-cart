@@ -7,7 +7,6 @@ import { getProduct } from '@/data/data';
 const ProductDetails = async ({ params }) => {
     const { id } = await params;
     const product = await getProduct(id);
-    // console.log(product);
 
     return (
         <div className="min-h-screen">
