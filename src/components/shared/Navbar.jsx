@@ -42,12 +42,14 @@ const Navbar = () => {
                                     <span className="loading loading-ring loading-xl"></span>
                                 </div> :
                                 user ?
-                                    <div className='flex gap-4 items-center  justify-end'>
-                                        <h2 className='font-semibold hidden sm:block'>{user.name}</h2>
-                                        <Image src={user.image} width={30} height={500} alt="" className='w-10 h-12 rounded-full'></Image>
+                                    <div className='flex gap-4 items-center justify-end'>
+                                        <Link href={"/my-profile"} className='flex gap-4 items-center justify-end'>
+                                            <h2 className='font-semibold hidden sm:block'>{user.name}</h2>
+                                            <Image src={user.image} width={30} height={500} alt="" className='w-10 h-12 rounded-full'></Image>
+                                        </Link>
                                         <Link
                                             onClick={async () => await authClient.signOut()}
-                                            className="group relative inline-block p-0.5 rounded-md bg-linear-to-r from-indigo-500 via-purple-500 to-orange-400"
+                                            className="group relative hidden sm:inline-block p-0.5 rounded-md bg-linear-to-r from-indigo-500 via-purple-500 to-orange-400"
                                             href={"/login"}
                                         >
                                             <span className="block rounded-md bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition group-hover:bg-transparent group-hover:text-white">
@@ -86,6 +88,18 @@ const Navbar = () => {
                                 <li><NavLink href={"/"}>Home</NavLink></li>
                                 <li><NavLink href={"/products"}>Products</NavLink></li>
                                 <li><NavLink href={"/my-profile"}>My Profile</NavLink></li>
+                                {
+                                    session? 
+                                    <li><Link
+                                        onClick={async () => await authClient.signOut()}
+                                        className=""
+                                        href={"/login"}
+                                    >
+                                        <span className="">
+                                            Sign Out
+                                        </span>
+                                    </Link></li> : <li></li>
+                                }
                             </ul>
                         </div>
                     </div>

@@ -2,6 +2,11 @@ import ProductIntroCard from '@/components/shared/ProductIntroCard';
 import { getPosts } from '@/data/data';
 import React from 'react';
 
+export const metadata = {
+    title: "Sun Cart | Products",
+    description: "Sun-Cart homepage",
+};
+
 const AllProducts = async () => {
     const products = await getPosts();
 

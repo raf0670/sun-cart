@@ -4,6 +4,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getProduct } from '@/data/data';
 
+export const generateMetadata = async ({ params }) => {
+    const { id } = await params;
+    const product = await getProduct(id);
+
+    return {
+        title: product.name,
+        description: product.description
+    };
+};
+
 const ProductDetails = async ({ params }) => {
     const { id } = await params;
     const product = await getProduct(id);
