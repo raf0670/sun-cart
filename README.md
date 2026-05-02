@@ -1,9 +1,9 @@
-# 🌅 SunsetStore 
+# 🌅 Sun Cart 
 
 **Live URL:** [https://sun-cart-sandy.vercel.app/](https://sun-cart-sandy.vercel.app/)
 
 ## 📖 Purpose
-**SunsetStore** is a premium e-commerce platform designed to deliver a seamless and high-end shopping experience. Built for the "Golden Hour," the project focuses on cinematic UI transitions, robust authentication, and high-performance state management. It serves as a full-stack showcase of modern web development using the latest Next.js and React ecosystems.
+**Sun Cart** is a premium e-commerce platform designed to deliver a seamless and high-end shopping experience. Built for the "Golden Hour," the project focuses on cinematic UI transitions, robust authentication, and high-performance state management. It serves as a full-stack showcase of modern web development using the latest Next.js and React ecosystems.
 
 ---
 
