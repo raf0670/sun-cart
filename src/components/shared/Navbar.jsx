@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import sunsetLogo from "@/assets/tropicalsunset.png";
 import Link from 'next/link';
+import NavLink from './NavLink';
 
 const Navbar = () => {
     return (
@@ -18,9 +19,9 @@ const Navbar = () => {
                     <div className="hidden md:block">
                         <nav aria-label="Global">
                             <ul className="flex items-center gap-6 text-md font-semibold">
-                                <li><Link href={"/"}>Home</Link></li>
-                                <li><Link href={"/products"}>Products</Link></li>
-                                <li><Link href={"/my-profile"}>My Profile</Link></li>
+                                <li><NavLink href={"/"}>Home</NavLink></li>
+                                <li><NavLink href={"/products"}>Products</NavLink></li>
+                                <li><NavLink href={"/my-profile"}>My Profile</NavLink></li>
                             </ul>
                         </nav>
                     </div>
@@ -53,9 +54,9 @@ const Navbar = () => {
                             <ul
                                 tabIndex="-1"
                                 className="menu menu-lg dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                                <li><Link href={"/"}>Home</Link></li>
-                                <li><Link href={"/products"}>Products</Link></li>
-                                <li><Link href={"/my-profile"}>My Profile</Link></li>
+                                <li><NavLink href={"/"}>Home</NavLink></li>
+                                <li><NavLink href={"/products"}>Products</NavLink></li>
+                                <li><NavLink href={"/my-profile"}>My Profile</NavLink></li>
                             </ul>
                         </div>
                     </div>

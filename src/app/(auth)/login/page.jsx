@@ -4,12 +4,23 @@ import Link from 'next/link';
 import { ArrowRight, Lock, Mail } from 'lucide-react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
+import { authClient } from '@/lib/auth-client';
 
 const LoginPage = () => {
-    const {register, handleSubmit, formState: {errors}} = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const handleLoginSubmit = (data) => {
-        console.log(data);
+    const handleLoginSubmit = async (data) => {
+        const { email, password } = data;
+
+        const { data: res, error } = await authClient.signIn.email({
+            email: email,
+            password: password,
+            rememberMe: true,
+            callbackURL: "/",
+        });
+
+        console.log(res);
+        console.log(error);
     };
 
     return (
@@ -53,7 +64,7 @@ const LoginPage = () => {
                                 <div className="relative group">
                                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-gray-400 group-focus-within:text-indigo-500 transition-colors" />
                                     <input
-                                        {...register("email", {required: "Please input your email to log in!"})}
+                                        {...register("email", { required: "Please input your email to log in!" })}
                                         type="email"
                                         placeholder="user@domain.com"
                                         className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/5 transition-all"
@@ -69,7 +80,7 @@ const LoginPage = () => {
                                 <div className="relative group">
                                     <Lock className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-gray-400 group-focus-within:text-indigo-500 transition-colors" />
                                     <input
-                                        {...register("password", {required: "Password is Required!"})}
+                                        {...register("password", { required: "Password is Required!" })}
                                         type="password"
                                         placeholder="••••••••"
                                         className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/5 transition-all"

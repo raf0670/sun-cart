@@ -4,12 +4,30 @@ import Link from 'next/link';
 import { ArrowRight, Lock, Mail, ShieldCheck, User, UserPlus } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { FaUser } from 'react-icons/fa';
+import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 
 const RegisterPage = () => {
+    const router = useRouter();
+
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const handleRegisterSubmit = (data) => {
-        console.log(data);
+    const handleRegisterSubmit = async (data) => {
+        const { name, photo, email, password } = data;
+
+        const { data: res, error } = await authClient.signUp.email({
+            name: name, // required
+            email: email, // required
+            password: password, // required
+            image: photo,
+            callbackURL: "/",
+        },
+            {
+                onSuccess: () => {
+                    router.push("/");
+                }
+            }
+        );
     };
 
     return (
