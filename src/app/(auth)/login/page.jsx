@@ -5,6 +5,7 @@ import { ArrowRight, Lock, Mail } from 'lucide-react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { authClient } from '@/lib/auth-client';
+import { toast } from 'react-toastify';
 
 const LoginPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -19,8 +20,15 @@ const LoginPage = () => {
             callbackURL: "/",
         });
 
-        console.log(res);
-        console.log(error);
+        if (error) {
+            toast.error(error.message);
+        }
+    };
+
+    const handleGoogleSignIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google"
+        });
     };
 
     return (
@@ -100,12 +108,9 @@ const LoginPage = () => {
                             <div className="relative flex justify-center text-xs uppercase"><span className="bg-white px-4 text-gray-400 font-medium">Or continue with</span></div>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4">
-                            <button className="flex items-center justify-center gap-2 border border-gray-100 py-3 rounded-xl hover:bg-gray-50 transition-colors text-sm font-bold text-gray-700">
+                        <div className="">
+                            <button onClick={handleGoogleSignIn} className="flex items-center w-full justify-center gap-2 border border-gray-100 py-3 rounded-xl hover:bg-gray-50 transition-colors text-sm font-bold text-gray-700">
                                 <FaGoogle className="size-4 text-blue-500" /> Google
-                            </button>
-                            <button className="flex items-center justify-center gap-2 border border-gray-100 py-3 rounded-xl hover:bg-gray-50 transition-colors text-sm font-bold text-gray-700">
-                                <FaGithub className="size-4" /> GitHub
                             </button>
                         </div>
 

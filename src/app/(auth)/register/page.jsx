@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { FaUser } from 'react-icons/fa';
 import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 const RegisterPage = () => {
     const router = useRouter();
@@ -28,6 +29,10 @@ const RegisterPage = () => {
                 }
             }
         );
+
+        if (error) {
+            toast.error(error.message);
+        }
     };
 
     return (

@@ -69,7 +69,7 @@ const UpdateProfile = () => {
                             {errors.image && <p className="text-[10px] text-red-500 font-bold uppercase ml-1">{errors.image.message}</p>}
                         </div>
 
-                        <button className="w-full bg-[#0a0a0b] text-white rounded-2xl py-4 font-black flex items-center justify-center gap-2 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-orange-500 transition-all duration-500 mt-4 shadow-xl active:scale-95">
+                        <button className="w-full bg-[#0a0a0b] text-white rounded-2xl py-4 font-black flex items-center justify-center gap-2 hover:bg-linear-to-r hover:from-indigo-600 hover:to-orange-500 transition-all duration-500 mt-4 shadow-xl active:scale-95">
                             <Save size={18} />
                             Update Information
                         </button>
