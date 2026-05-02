@@ -1,10 +1,15 @@
+"use client";
 import Image from 'next/image';
 import React from 'react';
 import sunsetLogo from "@/assets/tropicalsunset.png";
 import Link from 'next/link';
 import NavLink from './NavLink';
+import { authClient } from '@/lib/auth-client';
 
 const Navbar = () => {
+    const { data: session, isPending } = authClient.useSession();
+    const user = session?.user;
+
     return (
         <header className="shadow-sm">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -27,25 +32,49 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <div className="sm:flex sm:gap-4">
-                            <Link
-                                className="rounded-md bg-linear-to-r from-indigo-500 via-purple-500 to-orange-400 px-5 py-2.5 text-sm font-medium text-white shadow-lg transition hover:brightness-110 hover:shadow-purple-500/25"
-                                href={"/login"}
-                            >
-                                Login
-                            </Link>
+                        {
+                            isPending ?
+                                <div className='flex gap-2 justify-end'>
+                                    <span className="loading loading-ring loading-xl"></span>
+                                    <span className="loading loading-ring loading-xl"></span>
+                                    <span className="loading loading-ring loading-xl"></span>
+                                    <span className="loading loading-ring loading-xl"></span>
+                                    <span className="loading loading-ring loading-xl"></span>
+                                </div> :
+                                user ?
+                                    <div className='flex gap-4 items-center  justify-end'>
+                                        <h2 className='font-semibold hidden sm:block'>{user.name}</h2>
+                                        <Image src={user.image} width={30} height={500} alt="" className='w-10 h-12 rounded-full'></Image>
+                                        <Link
+                                            onClick={async () => await authClient.signOut()}
+                                            className="group relative inline-block p-0.5 rounded-md bg-linear-to-r from-indigo-500 via-purple-500 to-orange-400"
+                                            href={"/login"}
+                                        >
+                                            <span className="block rounded-md bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition group-hover:bg-transparent group-hover:text-white">
+                                                Sign Out
+                                            </span>
+                                        </Link>
+                                    </div> :
+                                    <div className="sm:flex sm:gap-4">
+                                        <Link
+                                            className="rounded-md bg-linear-to-r from-indigo-500 via-purple-500 to-orange-400 px-5 py-2.5 text-sm font-medium text-white shadow-lg transition hover:brightness-110 hover:shadow-purple-500/25"
+                                            href={"/login"}
+                                        >
+                                            Login
+                                        </Link>
 
-                            <div className="hidden sm:flex">
-                                <Link
-                                    className="group relative inline-block p-0.5 rounded-md bg-linear-to-r from-indigo-500 via-purple-500 to-orange-400"
-                                    href={"/register"}
-                                >
-                                    <span className="block rounded-md bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition group-hover:bg-transparent group-hover:text-white">
-                                        Register
-                                    </span>
-                                </Link>
-                            </div>
-                        </div>
+                                        <div className="hidden sm:flex">
+                                            <Link
+                                                className="group relative inline-block p-0.5 rounded-md bg-linear-to-r from-indigo-500 via-purple-500 to-orange-400"
+                                                href={"/register"}
+                                            >
+                                                <span className="block rounded-md bg-white px-5 py-2.5 text-sm font-medium text-gray-700 transition group-hover:bg-transparent group-hover:text-white">
+                                                    Register
+                                                </span>
+                                            </Link>
+                                        </div>
+                                    </div>
+                        }
 
                         <div className="dropdown dropdown-end block md:hidden">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
